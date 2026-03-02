@@ -4,6 +4,8 @@ import com.matheus.agendadorTarefas.business.dto.TarefasDTO;
 import com.matheus.agendadorTarefas.infrastructure.entity.TarefasEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TarefasConverter {
 
@@ -16,7 +18,7 @@ public class TarefasConverter {
                 .emailUsuario(tarefasDTO.getEmailUsuario())
                 .horaAlteracao(tarefasDTO.getHoraAltereacao())
                 .statusNotificacao(tarefasDTO.getStatusNotificacao())
-                .descricao(tarefasDTO.getDescrição())
+                .descricao(tarefasDTO.getDescricao())
                 .build();
     }
 
@@ -29,7 +31,15 @@ public class TarefasConverter {
                 .emailUsuario(tarefasEntity.getEmailUsuario())
                 .horaAltereacao(tarefasEntity.getHoraAlteracao())
                 .statusNotificacao(tarefasEntity.getStatusNotificacao())
-                .descrição(tarefasEntity.getDescricao())
+                .descricao(tarefasEntity.getDescricao())
                 .build();
+    }
+
+    public List<TarefasEntity> paraListaTarefasEntity(List<TarefasDTO> tarefasDTOS){
+        return tarefasDTOS.stream().map(this :: paraTarefasEntity).toList();
+    }
+
+    public List<TarefasDTO> paraListaTarefasDTO(List<TarefasEntity> tarefasEntities){
+        return tarefasEntities.stream().map(this :: paraTarefasDTO).toList();
     }
 }

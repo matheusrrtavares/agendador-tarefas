@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/tarefas")
 @RequiredArgsConstructor
@@ -18,5 +20,8 @@ public class TarefasController {
                                                     @RequestHeader("Authorization") String token) {
         return ResponseEntity.ok(tarefasService.agendaTarefa(token, tarefasDTO));
     }
+
+
+
 
 }

@@ -17,7 +17,7 @@ public class TarefasDTO {
 
     private String id;
     private String nomeTarefa;
-    private String descrição;
+    private String descricao;
     private LocalDateTime dataCriacao;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime dataEvento;
