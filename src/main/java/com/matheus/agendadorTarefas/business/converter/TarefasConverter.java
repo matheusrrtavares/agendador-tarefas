@@ -42,4 +42,7 @@ public class TarefasConverter {
     public List<TarefasDTO> paraListaTarefasDTO(List<TarefasEntity> tarefasEntities){
         return tarefasEntities.stream().map(this :: paraTarefasDTO).toList();
     }
+
+
+
 }
