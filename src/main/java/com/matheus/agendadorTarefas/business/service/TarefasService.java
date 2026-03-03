@@ -38,4 +38,11 @@ public class TarefasService {
         return tarefasConverter.paraListaTarefasDTO(
                 tarefasRepository.findByDataEventoBetween(dataInicial, dataFinal));
     }
+
+    public List<TarefasDTO> buscaTarefasPorEmail(String token) {
+        String email = jwtUtil.extractUsername(token.substring(7));
+        List<TarefasEntity> listaDeTarefas = tarefasRepository.findByEmailUsuario(email);
+
+        return tarefasConverter.paraListaTarefasDTO(listaDeTarefas);
+    }
 }

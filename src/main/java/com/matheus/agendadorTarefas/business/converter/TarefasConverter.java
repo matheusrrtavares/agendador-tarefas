@@ -16,7 +16,7 @@ public class TarefasConverter {
                 .dataCriacao(tarefasDTO.getDataCriacao())
                 .dataEvento(tarefasDTO.getDataEvento())
                 .emailUsuario(tarefasDTO.getEmailUsuario())
-                .horaAlteracao(tarefasDTO.getHoraAltereacao())
+                .dataAlteracao(tarefasDTO.getDataAlteracao())
                 .statusNotificacao(tarefasDTO.getStatusNotificacao())
                 .descricao(tarefasDTO.getDescricao())
                 .build();
@@ -29,7 +29,7 @@ public class TarefasConverter {
                 .dataCriacao(tarefasEntity.getDataCriacao())
                 .dataEvento(tarefasEntity.getDataEvento())
                 .emailUsuario(tarefasEntity.getEmailUsuario())
-                .horaAltereacao(tarefasEntity.getHoraAlteracao())
+                .dataAlteracao(tarefasEntity.getDataAlteracao())
                 .statusNotificacao(tarefasEntity.getStatusNotificacao())
                 .descricao(tarefasEntity.getDescricao())
                 .build();
