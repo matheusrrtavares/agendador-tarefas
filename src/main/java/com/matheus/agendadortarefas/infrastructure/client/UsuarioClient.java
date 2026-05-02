@@ -2,7 +2,6 @@ package com.matheus.agendadortarefas.infrastructure.client;
 
 import com.matheus.agendadortarefas.business.dto.UsuarioDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
