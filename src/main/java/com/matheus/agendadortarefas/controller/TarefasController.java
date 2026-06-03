@@ -1,7 +1,7 @@
 package com.matheus.agendadortarefas.controller;
 
 import com.matheus.agendadortarefas.business.TarefaService;
-import com.matheus.agendadortarefas.business.dto.TarefaDTO;
+import com.matheus.agendadortarefas.business.dto.TarefasDTORecord;
 import com.matheus.agendadortarefas.infrastructure.enums.StatusNotificacao;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,13 +19,13 @@ public class TarefasController {
     private final TarefaService service;
 
     @PostMapping
-    public ResponseEntity<TarefaDTO> salvaTarefa(@RequestBody TarefaDTO dto,
+    public ResponseEntity<TarefasDTORecord> salvaTarefa(@RequestBody TarefasDTORecord dto,
                                                  @RequestHeader("Authorization") String token) {
         return ResponseEntity.ok(service.salvarTarefa(dto, token));
     }
 
     @GetMapping("/eventos")
-    public ResponseEntity<List<TarefaDTO>> buscaTarefasPorPeriodo(
+    public ResponseEntity<List<TarefasDTORecord>> buscaTarefasPorPeriodo(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
             @RequestHeader("Authorization") String token) {
@@ -34,7 +34,7 @@ public class TarefasController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TarefaDTO>> buscaTarefasPorEmail(@RequestHeader("Authorization") String token){
+    public ResponseEntity<List<TarefasDTORecord>> buscaTarefasPorEmail(@RequestHeader("Authorization") String token){
 
         return ResponseEntity.ok(service.buscaTarefasPorEmail(token));
 
@@ -48,13 +48,13 @@ public class TarefasController {
     }
 
     @PatchMapping
-    public ResponseEntity<TarefaDTO> atualizaStatusTarefa(@RequestParam("status") StatusNotificacao status,
+    public ResponseEntity<TarefasDTORecord> atualizaStatusTarefa(@RequestParam("status") StatusNotificacao status,
                                                           @RequestParam("id") String id){
         return ResponseEntity.ok(service.alteraStatusTarefa(status, id));
     }
 
     @PutMapping
-    public ResponseEntity<TarefaDTO> updateTarefas(@RequestBody TarefaDTO dto,
+    public ResponseEntity<TarefasDTORecord> updateTarefas(@RequestBody TarefasDTORecord dto,
                                                    @RequestParam("id") String id) {
         return ResponseEntity.ok(service.updateTarefas(dto, id));
     }
